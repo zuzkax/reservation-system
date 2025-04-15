@@ -1,12 +1,12 @@
 def load_data(file):
-    hours = set()
+    hours = []
     try:
         with open(file, "r") as f:
             for line in f:
                 line = line.strip()
                 if line: 
                     date, hour = line.split() 
-                    hours.add((date, hour))
+                    hours.append((date, hour))
 
     except FileNotFoundError:
         print("There is no config file")
