@@ -33,7 +33,10 @@ def reservation(date, time, access_token):
     try:
         response = requests.post(url, json=data, headers=headers)
         response.raise_for_status()
-        print("Cant made reservation ", response.json())
+        print("Success!", response.json())
 
     except requests.exceptions.RequestException as e:
-        print(f"Reservation error {e}")
+        print(f"Reservation error: {e}")
+        if response is not None:
+            print(response.text)
+        raise
